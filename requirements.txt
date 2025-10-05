@@ -2,6 +2,6 @@
 buildozer>=1.4.0
 kivy>=2.1.0
 cython>=0.29.0
-pyaudio>=0.2.11
+# pyaudio>=0.2.11  # Installed system-wide via apt
 plyer>=2.1.0
 pyjnius>=1.4.0
