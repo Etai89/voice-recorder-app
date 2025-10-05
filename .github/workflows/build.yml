@@ -9,6 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     
+    env:
+      ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/27.3.13750724
+      ANDROID_NDK_ROOT: /usr/local/lib/android/sdk/ndk/27.3.13750724
+      ANDROID_HOME: /usr/local/lib/android/sdk
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+    
     steps:
     - uses: actions/checkout@v4
     
@@ -36,6 +42,15 @@ jobs:
     
     - name: Make buildozer directory
       run: mkdir -p ~/.buildozer
+    
+    - name: Set up Android environment
+      run: |
+        echo "Setting up Android NDK path..."
+        ls -la /usr/local/lib/android/sdk/ndk/
+        export ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/27.3.13750724
+        export ANDROID_NDK_ROOT=/usr/local/lib/android/sdk/ndk/27.3.13750724
+        echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/27.3.13750724" >> $GITHUB_ENV
+        echo "ANDROID_NDK_ROOT=/usr/local/lib/android/sdk/ndk/27.3.13750724" >> $GITHUB_ENV
     
     - name: Build APK
       run: |
