@@ -10,7 +10,7 @@ package.name = voicerecorder
 package.domain = com.example
 
 # (str) Source code where the main.py live
-source.dir = app
+source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas,wav
@@ -33,7 +33,7 @@ version = 1.0
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,pyaudio,plyer,pyjnius,android,wave
+requirements = python3,kivy,plyer,pyjnius,android
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -85,7 +85,7 @@ fullscreen = 0
 #android.presplash_lottie = "path/to/lottie/file.json"
 
 # (list) Permissions
-android.permissions = RECORD_AUDIO,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,WAKE_LOCK,RECEIVE_BOOT_COMPLETED,SCHEDULE_EXACT_ALARM,USE_EXACT_ALARM,FOREGROUND_SERVICE,SYSTEM_ALERT_WINDOW,VIBRATE
+android.permissions = RECORD_AUDIO,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,WAKE_LOCK,FOREGROUND_SERVICE
 
 # (list) Android application meta-data to set (key=value format)
 android.meta_data = com.google.android.gms.car.application=com.google.android.gms.car.CarAppService

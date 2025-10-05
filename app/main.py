@@ -18,28 +18,29 @@ from kivy.utils import platform
 from kivy.logger import Logger
 
 if platform == 'android':
-    from android.permissions import request_permissions, Permission
-    from jnius import autoclass, cast
-    from android import activity
-    from android.runnable import run_on_ui_thread
-    
-    # Android classes
-    PythonService = autoclass('org.kivy.android.PythonService')
-    Context = autoclass('android.content.Context')
-    Intent = autoclass('android.content.Intent')
-    PendingIntent = autoclass('android.app.PendingIntent')
-    AlarmManager = autoclass('android.app.AlarmManager')
-    System = autoclass('java.lang.System')
-    
-    # Request permissions
-    request_permissions([
-        Permission.RECORD_AUDIO,
-        Permission.WRITE_EXTERNAL_STORAGE,
-        Permission.READ_EXTERNAL_STORAGE,
-        Permission.WAKE_LOCK,
-        Permission.RECEIVE_BOOT_COMPLETED,
-        Permission.SCHEDULE_EXACT_ALARM
-    ])
+    try:
+        from android.permissions import request_permissions, Permission
+        from jnius import autoclass, cast
+        from android import activity
+        from android.runnable import run_on_ui_thread
+        
+        # Android classes
+        PythonService = autoclass('org.kivy.android.PythonService')
+        Context = autoclass('android.content.Context')
+        Intent = autoclass('android.content.Intent')
+        PendingIntent = autoclass('android.app.PendingIntent')
+        AlarmManager = autoclass('android.app.AlarmManager')
+        System = autoclass('java.lang.System')
+        
+        # Request permissions
+        request_permissions([
+            Permission.RECORD_AUDIO,
+            Permission.WRITE_EXTERNAL_STORAGE,
+            Permission.READ_EXTERNAL_STORAGE,
+            Permission.WAKE_LOCK
+        ])
+    except ImportError as e:
+        Logger.warning(f"VoiceRecorder: Android imports failed: {e}")
 
 
 class VoiceRecorderApp(App):
