@@ -1,0 +1,13 @@
+# GitHub Repository Setup Commands
+
+# After creating your repository on GitHub, run these commands:
+
+# Replace YOUR_USERNAME with your actual GitHub username
+git remote add origin https://github.com/YOUR_USERNAME/voice-recorder-app.git
+git branch -M main
+git push -u origin main
+
+# Example (replace with your username):
+# git remote add origin https://github.com/senio/voice-recorder-app.git
+# git branch -M main  
+# git push -u origin main
